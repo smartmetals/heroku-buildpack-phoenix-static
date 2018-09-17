@@ -115,6 +115,7 @@ install_and_cache_deps() {
     info "Found cached node_modules."
     mkdir -p node_modules
     cp -r $cache_dir/node_modules/* node_modules/
+    ls -loat node_modules/
   else
     info "No node_modules was found in the cache_dir."
     ls -loat $cache_dir
