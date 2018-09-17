@@ -112,8 +112,12 @@ install_and_cache_deps() {
   info "Installing and caching node modules"
   cd $assets_dir
   if [ -d $cache_dir/node_modules ]; then
+    info "Found cached node_modules."
     mkdir -p node_modules
     cp -r $cache_dir/node_modules/* node_modules/
+  else
+    info "No node_modules was found in the cache_dir."
+    ls -loat $cache_dir
   fi
 
   if [ -f "$assets_dir/yarn.lock" ]; then
